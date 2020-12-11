@@ -5,8 +5,10 @@
 [ext_resource path="res://audio/music/through space by maxstack.ogg" type="AudioStream" id=3]
 [ext_resource path="res://scenes/ships/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/EnemyController.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/ships/Boss.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/ships/EnemyShips/EnemyController.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/ships/EnemyShips/BossShips/Boss.tscn" type="PackedScene" id=7]
+
+
 
 [node name="main" type="Node2D"]
 position = Vector2( 2.15851, 1 )

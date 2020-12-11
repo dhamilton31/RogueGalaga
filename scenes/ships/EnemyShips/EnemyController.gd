@@ -14,8 +14,8 @@ var enemies_killed_this_level = 0
 export var enemy_start_delay_time = 4
 var enemy_delay_subtract_on_level_up = 0.1
 var enemy_delay_time
-const enemy_scene = preload("res://scenes/ships/Enemy.tscn")
-const enemy_with_path = preload("res://scenes/ships/Enemy_with_Path.tscn")
+const enemy_scene = preload("res://scenes/ships/EnemyShips/Enemy.tscn")
+const enemy_with_path = preload("res://scenes/ships/EnemyShips/Enemy_with_Path.tscn")
 
 var spawners
 

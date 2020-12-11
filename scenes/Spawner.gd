@@ -7,7 +7,7 @@ var speed = 200
 var timer
 var targets
 
-const enemy_with_path = preload("res://scenes/ships/Enemy_with_Path.tscn")
+const enemy_with_path = preload("res://scenes/ships/EnemyShips/Enemy_with_Path.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

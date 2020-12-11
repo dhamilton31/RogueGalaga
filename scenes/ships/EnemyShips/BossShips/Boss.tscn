@@ -1,10 +1,11 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://scenes/ships/Boss.gd" type="Script" id=1]
+[ext_resource path="res://scenes/ships/EnemyShips/BossShips/Boss.gd" type="Script" id=1]
 [ext_resource path="res://gameArt/space_shooter_pack/space_shooter_pack/spritesheets/PNG/ufoBlue.png" type="Texture" id=2]
 [ext_resource path="res://gameArt/space_shooter_pack/space_shooter_pack/spritesheets/PNG/ufoBlue2.png" type="Texture" id=3]
 [ext_resource path="res://gameArt/space_shooter_pack/space_shooter_pack/spritesheets/PNG/ufoBlueHit.png" type="Texture" id=4]
 [ext_resource path="res://gameArt/space_shooter_pack/space_shooter_pack/spritesheets/Bonus/sfx_laser2.ogg" type="AudioStream" id=5]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

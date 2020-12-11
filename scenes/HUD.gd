@@ -96,7 +96,7 @@ func _on_ShowLicenseButton_pressed():
 func _on_Player_upgrade_optained(max_health, speed, reload_time):
 	var tween = $MainMenu/Tween
 	if not tween.is_active():
-    	tween.start()
+		tween.start()
 	$MainMenu/Stats.show()
 	$MainMenu/Stats.text = "Max Health: " + str(max_health) + "\nSpeed: " + str(speed) + " mph" + "\nReload: " + str(reload_time)
 	tween.interpolate_property($MainMenu/Stats, "modulate", start_message, end_message, 3.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
