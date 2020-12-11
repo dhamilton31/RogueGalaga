@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/upgrades/Upgrade.gd" type="Script" id=1]
+[ext_resource path="res://gameArt/powerupRed_health.png" type="Texture" id=2]
+[ext_resource path="res://gameArt/SpaceShooterRedux/PNG/Power-ups/bolt_bronze.png" type="Texture" id=3]
+[ext_resource path="res://gameArt/space_shooter_pack/space_shooter_pack/spritesheets/PNG/Power-ups/pill_red.png" type="Texture" id=4]
+[ext_resource path="res://gameArt/SpaceShooterRedux/PNG/Power-ups/shield_bronze.png" type="Texture" id=5]
+[ext_resource path="res://gameArt/space_shooter_pack/space_shooter_pack/spritesheets/PNG/Power-ups/things_bronze.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "health_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "speed_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "damage_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "shield_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "fr_up",
+"speed": 5.0
+} ]
+
+[node name="Upgrade" type="Node2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 1 )
+scale = Vector2( 1.2, 1.2 )
+frames = SubResource( 1 )
+animation = "fr_up"

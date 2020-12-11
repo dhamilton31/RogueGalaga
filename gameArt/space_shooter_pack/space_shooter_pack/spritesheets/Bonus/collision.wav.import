@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/collision.wav-590c3e311696caa924567957ca9fd66b.sample"
+
+[deps]
+
+source_file="res://gameArt/space_shooter_pack/space_shooter_pack/spritesheets/Bonus/collision.wav"
+dest_files=[ "res://.import/collision.wav-590c3e311696caa924567957ca9fd66b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

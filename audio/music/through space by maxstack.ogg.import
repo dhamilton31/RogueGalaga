@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/through space by maxstack.ogg-0ccd70c942b860588f93e277ff768f96.oggstr"
+
+[deps]
+
+source_file="res://audio/music/through space by maxstack.ogg"
+dest_files=[ "res://.import/through space by maxstack.ogg-0ccd70c942b860588f93e277ff768f96.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

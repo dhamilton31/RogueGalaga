@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/main.gd" type="Script" id=1]
+[ext_resource path="res://gameArt/seamless space by n4.PNG" type="Texture" id=2]
+[ext_resource path="res://audio/music/through space by maxstack.ogg" type="AudioStream" id=3]
+[ext_resource path="res://scenes/ships/Player.tscn" type="PackedScene" id=4]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 2.15851, 0 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 319.03, 266.838 )
+texture = ExtResource( 2 )
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 10.0
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 42.1202, 678.743 )
+[connection signal="special_avilable" from="Player" to="." method="_on_Player_special_avilable"]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/main.gd" type="Script" id=1]
+[ext_resource path="res://gameArt/seamless space by n4.PNG" type="Texture" id=2]
+[ext_resource path="res://audio/music/through space by maxstack.ogg" type="AudioStream" id=3]
+[ext_resource path="res://scenes/ships/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/EnemyController.tscn" type="PackedScene" id=6]
+
+[node name="main" type="Node2D"]
+position = Vector2( 2.15851, 1 )
+script = ExtResource( 1 )
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Starfield1" type="Sprite" parent="Background"]
+texture = ExtResource( 2 )
+
+[node name="Starfield2" type="Sprite" parent="Background"]
+position = Vector2( 0, 1024 )
+texture = ExtResource( 2 )
+
+[node name="Starfield_right_1" type="Sprite" parent="Background"]
+position = Vector2( 1024, 0 )
+texture = ExtResource( 2 )
+
+[node name="Starfield_right_2" type="Sprite" parent="Background"]
+position = Vector2( 1024, 1024 )
+texture = ExtResource( 2 )
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource( 3 )
+volume_db = 10.0
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 0, 0 )
+speed = 400
+reload_time = 0.3
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="EnemyController" parent="." instance=ExtResource( 6 )]
+
+[node name="PlayerSpawnPoint" type="Position2D" parent="."]
+position = Vector2( 540, 1380 )
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="player_hit" from="Player" to="HUD" method="_on_Player_player_hit"]
+[connection signal="special_avilable" from="Player" to="." method="_on_Player_special_avilable"]
+[connection signal="special_avilable" from="Player" to="HUD" method="_on_Player_special_avilable"]
+[connection signal="upgrade_optained" from="Player" to="HUD" method="_on_Player_upgrade_optained"]
+[connection signal="level_up" from="EnemyController" to="HUD" method="_on_EnemyController_level_up"]

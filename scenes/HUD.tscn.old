@@ -1,0 +1,242 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/HUD.gd" type="Script" id=1]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/ChargingIndicator.tscn" type="PackedScene" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="InputEventAction" id=4]
+action = "ui_select"
+
+[sub_resource type="ShortCut" id=5]
+shortcut = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 32
+font_data = ExtResource( 2 )
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="MainMenu" type="Node2D" parent="."]
+visible = false
+
+[node name="ScoreLabel" type="Label" parent="MainMenu"]
+anchor_right = 1.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 1 )
+text = "Score: 0"
+
+[node name="LevelLabel" type="Label" parent="MainMenu"]
+anchor_right = 1.0
+margin_left = 443.909
+margin_top = 0.814484
+margin_right = 642.909
+margin_bottom = 58.8145
+custom_fonts/font = SubResource( 1 )
+text = "Level: 1"
+align = 2
+
+[node name="MessageLabel" type="Label" parent="MainMenu"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 67.6045
+margin_top = 231.403
+margin_right = 564.604
+margin_bottom = 309.403
+custom_fonts/font = SubResource( 2 )
+text = "Rogue + Galaga"
+align = 1
+
+[node name="StartButton" type="Button" parent="MainMenu"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 73.0
+margin_top = 462.0
+margin_right = 273.0
+margin_bottom = 562.0
+custom_fonts/font = SubResource( 3 )
+shortcut = SubResource( 5 )
+text = "Start"
+
+[node name="MessageTimer" type="Timer" parent="MainMenu"]
+wait_time = 2.0
+one_shot = true
+
+[node name="MenuButton" type="Button" parent="MainMenu"]
+margin_left = 373.0
+margin_top = 462.0
+margin_right = 574.0
+margin_bottom = 562.0
+custom_fonts/font = SubResource( 6 )
+text = "Menu"
+
+[node name="ExitGameLabel" type="Label" parent="MainMenu"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 182.5
+margin_top = 625.0
+margin_right = 506.5
+margin_bottom = 664.0
+custom_fonts/font = SubResource( 7 )
+text = "Press \"ESC\" to quit"
+align = 1
+
+[node name="ChargingIndicator" parent="MainMenu" instance=ExtResource( 3 )]
+z_index = -1
+
+[node name="SettingsMenu" type="Node2D" parent="."]
+
+[node name="ShowCreditsButton" type="Button" parent="SettingsMenu"]
+margin_left = 112.478
+margin_top = 190.416
+margin_right = 570.478
+margin_bottom = 274.416
+custom_fonts/font = SubResource( 8 )
+text = "Show Credits"
+
+[node name="GodotLicenseButton" type="Button" parent="SettingsMenu"]
+margin_left = 94.2762
+margin_top = 367.882
+margin_right = 587.276
+margin_bottom = 451.882
+custom_fonts/font = SubResource( 8 )
+text = "Godot License"
+
+[node name="BackToGameButton" type="Button" parent="SettingsMenu"]
+margin_left = 102.183
+margin_top = 523.117
+margin_right = 580.183
+margin_bottom = 607.117
+custom_fonts/font = SubResource( 9 )
+text = "Back to Game"
+
+[node name="CreditsLayer" type="Node2D" parent="SettingsMenu"]
+visible = false
+position = Vector2( 20, 20 )
+
+[node name="CreditsBkgd" type="ColorRect" parent="SettingsMenu/CreditsLayer"]
+margin_right = 600.0
+margin_bottom = 700.0
+color = Color( 0.180392, 0.196078, 0.298039, 1 )
+
+[node name="Credits" type="Label" parent="SettingsMenu/CreditsLayer"]
+margin_right = 602.0
+margin_bottom = 618.0
+text = "Credits: 
+
+-- Game Programming --
+nightdelivery123
+discoPiranha
+
+-- Art -- 
+
+\"Seamless Space\" by n4, from
+https://opengameart.org/content/seamless-space-stars
+
+\"Space Shooter Redux\" by Kenney.nl
+https://opengameart.org/content/space-shooter-redux
+
+
+-- Music -- 
+\"Through Space\" by Maxstack, from
+ https://opengameart.org/content/through-space
+"
+align = 1
+valign = 1
+
+[node name="ExitCredits" type="Button" parent="SettingsMenu/CreditsLayer"]
+margin_left = 23.0
+margin_top = 17.0
+margin_right = 64.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 11 )
+text = "X"
+
+[node name="LicenseLayer" type="Node2D" parent="SettingsMenu"]
+visible = false
+position = Vector2( 20, 20 )
+
+[node name="LicenseBkgd" type="ColorRect" parent="SettingsMenu/LicenseLayer"]
+margin_right = 600.0
+margin_bottom = 700.0
+color = Color( 0.180392, 0.196078, 0.298039, 1 )
+
+[node name="License" type="Label" parent="SettingsMenu/LicenseLayer"]
+margin_right = 602.0
+margin_bottom = 618.0
+text = "Godot Engine:
+Copyright (c) 2007-2019 Juan Linietsky, Ariel Manzur.
+Copyright (c) 2014-2019 Godot Engine contributors.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the \"Software\"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, 
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE 
+AND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR 
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE 
+OR THE USE OR OTHER  DEALINGS IN THE SOFTWARE.
+
+-- Godot Engine <https://godotengine.org>"
+align = 1
+valign = 1
+
+[node name="ExitLicense" type="Button" parent="SettingsMenu/LicenseLayer"]
+margin_left = 23.0
+margin_top = 17.0
+margin_right = 64.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 11 )
+text = "X"
+
+[connection signal="pressed" from="MainMenu/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="timeout" from="MainMenu/MessageTimer" to="." method="_on_MessageTimer_timeout"]
+[connection signal="pressed" from="MainMenu/MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="SettingsMenu/ShowCreditsButton" to="." method="_on_ShowCreditsButton_pressed"]
+[connection signal="pressed" from="SettingsMenu/GodotLicenseButton" to="." method="_on_GodotLicenseButton_pressed"]
+[connection signal="pressed" from="SettingsMenu/BackToGameButton" to="." method="_on_BackToGameButton_pressed"]
+[connection signal="pressed" from="SettingsMenu/CreditsLayer/ExitCredits" to="." method="_on_ExitCredits_pressed"]
+[connection signal="pressed" from="SettingsMenu/LicenseLayer/ExitLicense" to="." method="_on_ExitLicense_pressed"]

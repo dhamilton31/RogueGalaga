@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/ships/Shield.gd" type="Script" id=1]
+[ext_resource path="res://gameArt/SpaceShooterRedux/PNG/Effects/shield1.png" type="Texture" id=2]
+[ext_resource path="res://gameArt/space_shooter_pack/space_shooter_pack/spritesheets/PNG/shield1hit.png" type="Texture" id=3]
+[ext_resource path="res://gameArt/space_shooter_pack/space_shooter_pack/spritesheets/PNG/Effects/shield1.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "shield",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "shieldHit",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 76.098
+
+[node name="Shield" type="Area2D"]
+position = Vector2( 0, -1.16634 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "shield"
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 1.16635, 15.1625 )
+shape = SubResource( 2 )
+
+[node name="DamageTimer" type="Timer" parent="."]
+[connection signal="area_entered" from="." to="." method="_on_Shield_area_entered"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_DamageTimer_timeout"]

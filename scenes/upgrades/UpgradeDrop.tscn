@@ -1,0 +1,57 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scenes/upgrades/UpgradeDrop.gd" type="Script" id=1]
+[ext_resource path="res://gameArt/space_shooter_pack/space_shooter_pack/spritesheets/PNG/Power-ups/healthPickup.png" type="Texture" id=2]
+[ext_resource path="res://gameArt/space_shooter_pack/space_shooter_pack/spritesheets/PNG/Power-ups/star_gold.png" type="Texture" id=3]
+[ext_resource path="res://gameArt/space_shooter_pack/space_shooter_pack/spritesheets/PNG/Power-ups/star_silver.png" type="Texture" id=4]
+[ext_resource path="res://gameArt/RainbowLaserUpgrade/rbLaserUpgrade01.png" type="Texture" id=5]
+[ext_resource path="res://gameArt/RainbowLaserUpgrade/rbLaserUpgrade02.png" type="Texture" id=6]
+[ext_resource path="res://gameArt/RainbowLaserUpgrade/rbLaserUpgrade03.png" type="Texture" id=7]
+[ext_resource path="res://gameArt/RainbowLaserUpgrade/rbLaserUpgrade04.png" type="Texture" id=8]
+[ext_resource path="res://gameArt/RainbowLaserUpgrade/rbLaserUpgrade05.png" type="Texture" id=9]
+[ext_resource path="res://gameArt/RainbowLaserUpgrade/rbLaserUpgrade06.png" type="Texture" id=10]
+[ext_resource path="res://gameArt/RainbowLaserUpgrade/rbLaserUpgrade07.png" type="Texture" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "health",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "upgrade",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "beam",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 34.8243, 22.3618 )
+
+[node name="UpgradeDrop" type="Area2D"]
+position = Vector2( 14.7744, 8.72874 )
+scale = Vector2( 1.2, 1.2 )
+linear_damp = 0.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+percentage_beam_drop = 40
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "beam"
+frame = 6
+speed_scale = 2.0
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

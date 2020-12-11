@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/lasers/laser.tscn" type="PackedScene" id=1]
+
+[node name="EnemyLaser" instance=ExtResource( 1 )]
+velocity = Vector2( 0, 500 )
+laserType = 1
+
+[node name="AnimatedSprite" parent="." index="0"]
+position = Vector2( 1.54044, 0 )
+scale = Vector2( 1.34232, 1 )
+animation = "enemy_laser"
+playing = true
